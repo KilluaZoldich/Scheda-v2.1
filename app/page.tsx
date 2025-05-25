@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import { WorkoutProvider } from "@/components/workout-context"
+import { ThemeProvider } from "@/components/theme-provider"
 import { EnhancedSidebar } from "@/components/enhanced-sidebar"
 import { EnhancedDashboard } from "@/components/enhanced-dashboard"
 import { ExerciseLibrary } from "@/components/exercise-library"
@@ -13,7 +15,7 @@ import { MobileExerciseLibrary } from "@/components/mobile-exercise-library"
 import { MobileActiveWorkout } from "@/components/mobile-active-workout"
 import { useMobile } from "@/hooks/use-mobile"
 
-export default function Home() {
+function WorkoutApp() {
   const [activeTab, setActiveTab] = useState("dashboard")
   const isMobile = useMobile()
 
@@ -70,5 +72,15 @@ export default function Home() {
       <EnhancedSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
       <main className="flex-1 p-8 overflow-auto relative z-10">{renderDesktopContent()}</main>
     </div>
+  )
+}
+
+export default function Home() {
+  return (
+    <ThemeProvider>
+      <WorkoutProvider>
+        <WorkoutApp />
+      </WorkoutProvider>
+    </ThemeProvider>
   )
 }
