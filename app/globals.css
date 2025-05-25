@@ -1,0 +1,319 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 0%;
+    --input: 0 0% 100%;
+    --ring: 0 0% 0%;
+    --radius: 0rem;
+
+    /* Brutal variables */
+    --brutal-bg: #ffffff;
+    --brutal-text: #000000;
+    --brutal-border: #000000;
+    --brutal-shadow: #000000;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 100%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 100%;
+
+    /* Brutal variables for dark mode */
+    --brutal-bg: #000000;
+    --brutal-text: #ffffff;
+    --brutal-border: #ffffff;
+    --brutal-shadow: #ffffff;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Enhanced brutal styling */
+.brutal-shadow {
+  box-shadow: 6px 6px 0px 0px var(--brutal-shadow);
+  transition: all 0.2s ease;
+}
+
+.brutal-shadow:hover {
+  box-shadow: 3px 3px 0px 0px var(--brutal-shadow);
+  transform: translate(3px, 3px);
+}
+
+/* Enhanced dark mode styling */
+.dark {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.dark .bg-white {
+  background-color: #000000 !important;
+}
+
+.dark .text-black {
+  color: #ffffff !important;
+}
+
+.dark .bg-black {
+  background-color: #ffffff !important;
+}
+
+.dark .text-white {
+  color: #000000 !important;
+}
+
+.dark .border-black {
+  border-color: #ffffff !important;
+}
+
+.dark .border-white {
+  border-color: #000000 !important;
+}
+
+/* Enhanced scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brutal-bg);
+  border: 2px solid var(--brutal-border);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--brutal-border), var(--brutal-text));
+  border: 2px solid var(--brutal-border);
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brutal-text);
+  transform: scale(1.1);
+}
+
+/* Enhanced dialog improvements */
+.dark [data-radix-popper-content-wrapper] {
+  background-color: #000000 !important;
+  border: 4px solid #ffffff !important;
+}
+
+.dark [data-radix-select-content] {
+  background-color: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+
+.dark [data-radix-select-item] {
+  color: #ffffff !important;
+  transition: all 0.2s ease;
+}
+
+.dark [data-radix-select-item]:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  transform: translateX(4px);
+}
+
+/* Enhanced dialog content styling */
+[data-radix-dialog-content] {
+  background-color: white !important;
+  color: black !important;
+  border: 4px solid black !important;
+  box-shadow: 8px 8px 0px 0px black !important;
+}
+
+.dark [data-radix-dialog-content] {
+  background-color: black !important;
+  color: white !important;
+  border: 4px solid white !important;
+  box-shadow: 8px 8px 0px 0px white !important;
+}
+
+/* Enhanced form styling */
+textarea,
+input {
+  background-color: white !important;
+  color: black !important;
+  border: 3px solid black !important;
+  transition: all 0.2s ease;
+}
+
+textarea:focus,
+input:focus {
+  transform: scale(1.02);
+  box-shadow: 4px 4px 0px 0px black !important;
+}
+
+.dark textarea,
+.dark input {
+  background-color: black !important;
+  color: white !important;
+  border: 3px solid white !important;
+}
+
+.dark textarea:focus,
+.dark input:focus {
+  box-shadow: 4px 4px 0px 0px white !important;
+}
+
+/* Enhanced animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Enhanced button interactions */
+.btn-brutal {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.btn-brutal:hover {
+  transform: scale(1.05) rotate(1deg);
+}
+
+.btn-brutal:active {
+  transform: scale(0.95) rotate(-1deg);
+}
+
+/* Enhanced card interactions */
+.card-brutal {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-brutal:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Enhanced focus styles */
+*:focus-visible {
+  outline: 3px solid var(--brutal-border);
+  outline-offset: 2px;
+  border-radius: 0;
+}
+
+/* Enhanced selection styles */
+::selection {
+  background-color: var(--brutal-border);
+  color: var(--brutal-bg);
+}
+
+/* Enhanced loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Enhanced mobile touch feedback */
+@media (hover: none) and (pointer: coarse) {
+  .btn-brutal:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Enhanced reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
